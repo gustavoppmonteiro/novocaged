@@ -1,0 +1,28 @@
+Package: novocaged
+Title: Pacote para baixar, ler e salvar microdados do Novo CAGED
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "gustavo",
+           family = "monteiro",
+           role = c("aut", "cre"),
+           email = "gustavoppmonteiro@gmail.com")
+Description: Pacote para baixar os microdados do Novo CAGED direto do R.
+    Ele salva, descompacta, le e salva os arquivos em formato .parquet.
+    Permite que se faca isso para uma serie de meses de um mesmo ano, de uma so vez.
+    Ha tambem uma funcao para transformar os arquivos em formato .parquet em .csv.
+    Outra funcao compacta os arquivos .csv em um documento zipado (atualizacao.zip).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: arrow,
+    tidyverse,
+    dplyr,
+    janitor,
+    magrittr,
+    utils,
+    readr,
+    devtools,
+    sidrar
+URL: https://github.com/gustavoppmonteiro/DieeseCAGED
+BugReports: https://github.com/gustavoppmonteiro/DieeseCAGED/issues
