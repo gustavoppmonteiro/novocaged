@@ -51,9 +51,6 @@ deflator_inpc <- function(base_caged,
       base_caged <- base_caged %>%
             dplyr::mutate(salario_real = salario*deflator)
       
-      #TODO: tem que colocar um 'return(base_caged)' aqui?
-      return(base_caged)
-      
 }
 
 
