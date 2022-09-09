@@ -1,4 +1,4 @@
-#' Funcao para baixar microdados do Novo Caged
+#' Funcao para salvar os microdados baixados e descompacados (em formato .txt) do Novo Caged
 #'
 #' @param ano Ano dos arquivos que devem ser baixados. Nao e possivel baixar microdados de meses de anos distintos.
 #' @param mes_inicial Mes cujos microdados vao ser baixados. No caso de baixar mais de um mes, esse argumento deve ser o mes mais distante.
@@ -12,19 +12,22 @@ salva_bases <- function(ano,
                         mes_inicial,
                         mes_final=mes_inicial,
                         caminho="atualizacao/caged_atualizacao.parquet"){
-
+      
+      #TODO: tem que arrumar o caminho pra ser so o caminho mesmo, sem nome do arquivo
+      #TODO: acho que tem que acrescentar um argumento so para o nome do arquivo
+      
       # Referência ao pipe
       `%>%` <- magrittr::`%>%`
-
+      
       # meses
       meses <- sprintf("%02d", c(mes_inicial:mes_final))
-
-
+      
+      
       caged <- data.frame()
-
+      
       # Baixa os microdados
       for (i in seq_along(meses)) {
-
+            
             # movimentacao
             mov <- utils::read.delim2(paste0("PastaMes/CAGEDMOV",
                                              ano,
@@ -32,15 +35,15 @@ salva_bases <- function(ano,
                                              ".txt"),
                                       sep = ";",
                                       encoding = "UTF-8")
-
+            
             mov <- mov %>%
                   janitor::clean_names() %>%
                   dplyr::mutate(competenciaexc = NA,
                                 indicadordeexclusao = NA)
-
+            
             caged <-  rbind(caged, mov)
-
-
+            
+            
             # fora do prazo
             mov <- utils::read.delim2(paste0("PastaMes/CAGEDFOR",
                                              ano,
@@ -48,15 +51,15 @@ salva_bases <- function(ano,
                                              ".txt"),
                                       sep = ";",
                                       encoding = "UTF-8")
-
+            
             mov <- mov %>%
                   janitor::clean_names() %>%
                   dplyr::mutate(competenciaexc = NA,
                                 indicadordeexclusao = NA)
-
+            
             caged <-  rbind(caged, mov)
-
-
+            
+            
             # exclusao
             mov <- utils::read.delim2(paste0("PastaMes/CAGEDEXC",
                                              ano,
@@ -64,22 +67,23 @@ salva_bases <- function(ano,
                                              ".txt"),
                                       sep = ";",
                                       encoding = "UTF-8")
-
+            
             mov <- mov %>%
                   janitor::clean_names()
-
+            
             caged <-  rbind(caged, mov)
-
+            
       }
-
-
-
+      
+      
+      
       # exporta ---------------------------------------------------------------
       # cria pasta atualizacao (se ja nao existir)
       dir.create("atualizacao", showWarnings = FALSE)
       arrow::write_parquet(caged, caminho)
-
-
+      
+      #TODO: tem que arrumar para que a pasta seja criada no caminho (mas tem que arrumar o caminho la em cima)
+      
 }
 
 
