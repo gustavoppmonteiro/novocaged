@@ -2,7 +2,7 @@
 % Please edit documentation in R/deflator_inpc.R
 \name{deflator_inpc}
 \alias{deflator_inpc}
-\title{Funcao para deflacionar salarios a partir do INPC(IBGE)}
+\title{Funcao para deflacionar salarios do Caged a partir do INPC(IBGE)}
 \usage{
 deflator_inpc(base_caged, mes_base = NULL)
 }
@@ -12,5 +12,5 @@ deflator_inpc(base_caged, mes_base = NULL)
 \item{mes_base}{Mes base para o calculo do deflator. Ex.: se for 202201, o deflator traz os salarios para valores de janeiro de 2022. Se nulo, calcula o deflator com base no mes mais recente do caged.}
 }
 \description{
-Funcao para deflacionar salarios a partir do INPC(IBGE)
+Funcao para deflacionar salarios do Caged a partir do INPC(IBGE)
 }

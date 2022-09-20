@@ -2,7 +2,7 @@
 % Please edit documentation in R/salva_bases.R
 \name{salva_bases}
 \alias{salva_bases}
-\title{Funcao para baixar microdados do Novo Caged}
+\title{Funcao para salvar os microdados baixados e descompacados (em formato .txt) do Novo Caged}
 \usage{
 salva_bases(
   ano,
@@ -21,5 +21,5 @@ salva_bases(
 \item{caminho}{Caminho contendo nome da pasta e do arquivo em que os dados serao salvos. Deve terminar em ".parquet".}
 }
 \description{
-Funcao para baixar microdados do Novo Caged
+Funcao para salvar os microdados baixados e descompacados (em formato .txt) do Novo Caged
 }
