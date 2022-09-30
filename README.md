@@ -95,7 +95,7 @@ novocaged::salva_parquet_em_csv(caminho_parquet = "atualizacao/cagedJanFev22.par
                                   caminho_csv = "atualizacao_csv/cagedJanFev22.csv")
 
 # compacta todos os arquivos que estiverem na pasta "atualizacao_csv"
-novocaged::Zipar_em7zip(caminho_arquivo = "atualizacao_csv")
+novocaged::Zipar_em7zip(caminho_pasta = "atualizacao_csv")
 
 
 ```
