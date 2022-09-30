@@ -86,4 +86,4 @@ salva_bases <- function(ano,
       
 }
 
-
+#TODO: tem que fazer excecoes para janeiro a março de 2020. Ver "D:\Dados\Bases de dados\novo caged\atualizacao_2020.R".
