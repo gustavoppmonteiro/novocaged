@@ -39,7 +39,7 @@ SM_DIEESE <- function() {
       # coloca em ordem e tira linhas so com anos
       data_frame <- data_frame %>% 
             dplyr::filter(as.numeric(`Período`)<=12) %>%  
-            dplyr::mutate(num_linha = row_number()) %>% 
+            dplyr::mutate(num_linha = dplyr::row_number()) %>% 
             dplyr::arrange(desc(num_linha))
       
       
