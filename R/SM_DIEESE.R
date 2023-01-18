@@ -4,8 +4,6 @@
 
 SM_DIEESE <- function() {
       
-      # exemplo: lista <- SM_DIEESE()
-      
       # Referência ao pipe
       `%>%` <- magrittr::`%>%`
       
