@@ -29,7 +29,8 @@ A função `deflator_inpc` baixa a série histórica do INPC e cria as variávei
 sejam preenchidos da maneira mais extensa, explícita e correta, mesmo que isso pareça redundante.
 Por exemplo, não há mensagens de erro de preenchimento. Mas é importante que o mes inicial seja menor do que o final e que ambos tenham valores entre 1 e 12.
 
-OBS.: NÃO FUNCIONA PARA OS MESES ENTRE JANEIRO E MARÇO DE 2020!
+OBS. 1: NÃO FUNCIONA PARA OS MESES ENTRE JANEIRO E MARÇO DE 2020!
+OBS. 2: PARA USAR A FUNÇÃO baixa_novo_caged OU baixa_caged TEM QUE TER BAIXADO O 7Z: https://www.7-zip.org/download.html
 
 
 
