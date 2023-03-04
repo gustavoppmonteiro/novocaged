@@ -34,10 +34,11 @@ baixa_caged <- function(ano,
             
             result <- tryCatch(
                   {
-                        curl::curl_download(url = origem, destfile = destino, mode = "wb")
+                        utils::download.file(url = origem, destfile = destino, mode = "wb")
+                        
                   },
                   error = function(e) {
-                        utils::download.file(url = origem, destfile = destino, mode = "wb")
+                        curl::curl_download(url = origem, destfile = destino, mode = "wb")
                         NULL
                   }
             )
@@ -59,10 +60,11 @@ baixa_caged <- function(ano,
             
             result <- tryCatch(
                   {
-                        curl::curl_download(url = origem, destfile = destino, mode = "wb")
+                        utils::download.file(url = origem, destfile = destino, mode = "wb")
+                        
                   },
                   error = function(e) {
-                        utils::download.file(url = origem, destfile = destino, mode = "wb")
+                        curl::curl_download(url = origem, destfile = destino, mode = "wb")
                         NULL
                   }
             )
@@ -84,10 +86,11 @@ baixa_caged <- function(ano,
             
             result <- tryCatch(
                   {
-                        curl::curl_download(url = origem, destfile = destino, mode = "wb")
+                        utils::download.file(url = origem, destfile = destino, mode = "wb")
+                        
                   },
                   error = function(e) {
-                        utils::download.file(url = origem, destfile = destino, mode = "wb")
+                        curl::curl_download(url = origem, destfile = destino, mode = "wb")
                         NULL
                   }
             )
