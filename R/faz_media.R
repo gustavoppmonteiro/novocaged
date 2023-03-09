@@ -23,6 +23,8 @@ faz_media <- function(dados, ..., var_media=salario_real, tira_outliers=T) {
                   merge(., lista_salario_minimo, by = "competenciamov") %>% 
                   dplyr::filter(salario>=0.3*salario_minimo & salario<=150*salario_minimo)
             
+      }else{
+            dados <- dados
       }
       
       
@@ -32,6 +34,8 @@ faz_media <- function(dados, ..., var_media=salario_real, tira_outliers=T) {
             dados <- dados %>% 
                   novocaged::deflator_inpc()
             
+      }else{
+            dados <- dados
       }
       
       # calcula a massa de salarios
