@@ -19,27 +19,27 @@ faz_media <- function(dados, ..., var_media=salario_real, tira_outliers=T) {
             lista_salario_minimo <- novocaged::SM_DIEESE()
             
             # junta a coluna de SM e filtra os outliers
-            dados <- dados %>% 
+            dados_f <- dados %>% 
                   merge(., lista_salario_minimo, by = "competenciamov") %>% 
                   dplyr::filter(salario>=0.3*salario_minimo & salario<=150*salario_minimo)
             
       }else{
-            dados <- dados
+            dados_f <- dados
       }
       
       
       # deflaciona
       if (length(dados$salario_real)==0) {
             
-            dados <- dados %>% 
+            dados_f <- dados_f %>% 
                   novocaged::deflator_inpc()
             
       }else{
-            dados <- dados
+            dados_f <- dados_f
       }
       
       # calcula a massa de salarios
-      T_massa <- dados %>%
+      T_massa <- dados_f %>%
             
             # tabela, com coluna estatistico + fora do prazo e coluna exclusao
             dplyr::group_by(...) %>%
@@ -61,7 +61,7 @@ faz_media <- function(dados, ..., var_media=salario_real, tira_outliers=T) {
       
       
       # calcula o total de mocimentacoes
-      T_qde <- dados %>%
+      T_qde <- dados_f %>%
             
             # tabela, com coluna estatistico + fora do prazo e coluna exclusao
             dplyr::group_by(...) %>%
