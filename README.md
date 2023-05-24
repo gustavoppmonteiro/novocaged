@@ -85,7 +85,8 @@ novocaged::descomprime_bases()
 novocaged::salva_bases(ano = 2022,
                          mes_inicial = 3,
                          mes_final = 3,
-                         caminho = "atualizacao/cagedMar22.parquet")
+                         nome_pasta="atualizacao",
+                         nome_arquivo = "cagedMar22")
 
 # le arquivo salvo
 dados_Mar22 <- arrow::read_parquet("atualizacao/cagedMar22.parquet")
