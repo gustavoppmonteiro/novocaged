@@ -8,7 +8,8 @@ salva_bases(
   ano,
   mes_inicial,
   mes_final = mes_inicial,
-  caminho = "atualizacao/caged_atualizacao.parquet"
+  nome_pasta = "atualizacao",
+  nome_arquivo = "caged_atualizacao"
 )
 }
 \arguments{
@@ -18,7 +19,9 @@ salva_bases(
 
 \item{mes_final}{Argumento opcional. No caso de baixar varios meses, se refere ao mes mais recente. Se for baixar apenas um mes o preenchimento e opcional.}
 
-\item{caminho}{Caminho contendo nome da pasta e do arquivo em que os dados serao salvos. Deve terminar em ".parquet".}
+\item{nome_pasta}{Caminho contendo nome da pasta em que o arquivo vai ser salvo.}
+
+\item{nome_arquivo}{Nome do arquivo em que os dados serao salvos. Sera salvo em extensao .parquet. (Nao precisa colocar .parquet no nome)}
 }
 \description{
 Funcao para salvar os microdados baixados e descompacados (em formato .txt) do Novo Caged
