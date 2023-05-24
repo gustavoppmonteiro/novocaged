@@ -3,7 +3,8 @@
 #' @param ano Ano dos arquivos que devem ser baixados. Nao e possivel baixar microdados de meses de anos distintos.
 #' @param mes_inicial Mes cujos microdados vao ser baixados. No caso de baixar mais de um mes, esse argumento deve ser o mes mais distante.
 #' @param mes_final Argumento opcional. No caso de baixar varios meses, se refere ao mes mais recente. Se for baixar apenas um mes o preenchimento e opcional.
-#' @param caminho Caminho contendo nome da pasta e do arquivo em que os dados serao salvos. Deve terminar em ".parquet".
+#' @param nome_pasta Caminho contendo nome da pasta em que o arquivo vai ser salvo.
+#' @param nome_arquivo Nome do arquivo em que os dados serao salvos. Sera salvo em extensao .parquet. (Nao precisa colocar .parquet no nome)
 #' @param apaga7z Argumento logico. Se TRUE, apaga os arquivos intermeiarios - dos microdados baixados e descompactados em formato .txt. CUIDADO: na pratica, apaga TODOS os arquivos .7z que estiverem salvas na pasta de trabalho!
 #'
 #' @export
@@ -11,7 +12,7 @@
 #' @examples
 #' # library(DieeseCAGED)
 #' # EXEMPLO 1: julho/22
-#' # baixa_novo_caged(7, ano=2022, caminho="atualizacao/caged_202207.parquet")
+#' # baixa_novo_caged(7, ano=2022, nome_pasta = "atualizacao", nome_arquivo = "caged_atualizacao")
 #'
 #' # # para ler:
 #' # caged_2021m7 <- arrow::read_parquet("atualizacao/caged_202207.parquet")
@@ -26,7 +27,8 @@
 baixa_novo_caged <- function(ano,
                              mes_inicial,
                              mes_final = mes_inicial,
-                             caminho = "atualizacao/caged_atualizacao.parquet",
+                             nome_pasta = "atualizacao",
+                             nome_arquivo = "caged_atualizacao",
                              apaga7z = T) {
 
       # Referência ao pipe
@@ -39,7 +41,7 @@ baixa_novo_caged <- function(ano,
       descomprime_bases()
       Sys.sleep(2)
 
-      salva_bases(ano, mes_inicial, mes_final, caminho)
+      salva_bases(ano, mes_inicial, mes_final, nome_pasta, nome_arquivo)
 
 
       # apaga arquivos baixados -----------------------------------------------

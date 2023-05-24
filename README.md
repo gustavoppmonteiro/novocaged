@@ -60,7 +60,8 @@ library(novocaged)
 novocaged::baixa_novo_caged(ano = 2022,
                               mes_inicial = 1,
                               mes_final = 2,
-                              caminho="atualizacao/cagedJanFev22.parquet")
+                              nome_pasta="atualizacao",
+                              nome_arquivo = "cagedJanFev22")
 
 # le arquivo salvo
 dados_JanFev22 <- arrow::read_parquet("atualizacao/cagedJanFev22.parquet")
