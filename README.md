@@ -70,12 +70,18 @@ dados_JanFev22 <- arrow::read_parquet("atualizacao/cagedJanFev22.parquet")
 # calcula salario real (com valores de fev/22)
 dados_JanFev22 <- dados_JanFev22 %>% 
       deflator_inpc(., mes_base="202202")
+      
+      
+# acrescenta duas variaveis: salario_minimo e salario_minimo_necessario
+dados_JanFev22 <- dados_JanFev22 %>% 
+      SM_DIEESE()
+
 
 
 # Exemplo 2: em 3 etapas --------------------------------------------------
 
-# baixa dados de mar-abr/2022, descompacta e salva arquivo com dados de março, 
-# com o nome de "cagedMar22", numa pasta chamada "atualizacao"
+# baixa dados de mar-abr/2022, descompacta e salva um arquivo com dados divulgados
+# em março, com o nome de "cagedMar22", numa pasta chamada "atualizacao"
 novocaged::baixa_caged(ano = 2022,
                          mes_inicial = 3,
                          mes_final = 4)
@@ -101,6 +107,29 @@ novocaged::salva_parquet_em_csv(caminho_parquet = "atualizacao/cagedJanFev22.par
 
 # compacta todos os arquivos que estiverem na pasta "atualizacao_csv"
 novocaged::Zipar_em7zip(caminho_pasta = "atualizacao_csv")
+
+
+
+
+# EXEMPLO 3: TABELAS ------------------------------------------------------
+
+# 1) faz tabela de frequencia de movimentacao em marco/2022, segundo sexo e regiao
+T1 <- dados_Mar22 %>%
+        filter(competenciamov==202203) %>% 
+        novocaged::faz_freq_mov(sexo, regiao)
+
+T1
+
+
+# 2) faz tabela com media de salario em marco/2022, segundo sexo e regiao
+T2 <- dados_Mar22 %>%
+        filter(competenciamov==202203) %>% 
+        novocaged::faz_media(., 
+                             var_media = salario, 
+                             sexo, regiao,
+                             tira_outliers = T) # tira acima de 150SM e abaixo de 0,3SM
+        
+T2
 
 
 ```
