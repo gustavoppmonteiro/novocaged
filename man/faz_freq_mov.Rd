@@ -4,12 +4,14 @@
 \alias{faz_freq_mov}
 \title{Funcao para fazer tabelas de frequencia de admissoes e desligamentos no Novo Caged.}
 \usage{
-faz_freq_mov(dados, ...)
+faz_freq_mov(dados, ..., complete = F)
 }
 \arguments{
 \item{dados}{nome da base de dados do novo caged. Necessario que contenha as variaveis: saldomovimentacao e indicadordeexclusao}
 
 \item{...}{uma ou mais variaveis que se deseja cruzar (p. ex.: competenciamov)}
+
+\item{complete}{transforma missings implicitos em valores explicitos.}
 }
 \description{
 Funcao para fazer tabelas de frequencia de admissoes e desligamentos no Novo Caged.

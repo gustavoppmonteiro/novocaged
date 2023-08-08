@@ -2,11 +2,12 @@
 #'
 #' @param dados nome da base de dados do novo caged. Necessario que contenha as variaveis: saldomovimentacao e indicadordeexclusao
 #' @param ... uma ou mais variaveis que se deseja cruzar (p. ex.: competenciamov)
+#' @param complete transforma missings implicitos em valores explicitos.
 #'
 #' @export
 
 
-faz_freq_mov <- function(dados, ...) {
+faz_freq_mov <- function(dados, ..., complete=F) {
       
       # Referência ao pipe
       `%>%` <- magrittr::`%>%`
@@ -24,6 +25,10 @@ faz_freq_mov <- function(dados, ...) {
             dplyr::ungroup() %>% 
             
             dplyr::select(-saldomovimentacao, -estat_fdp, -exclusao)
+      
+      if(complete==T){
+            tabela <- tabela %>% tidyr::complete(saldomovimentacao, ...)
+      }
       
       return(tabela)
       
