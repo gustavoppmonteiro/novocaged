@@ -19,7 +19,7 @@ baixa_caged <- function(ano,
       for (i in seq_along(meses)) {
             
             # exclusoes
-            origem = paste0("ftp://ftp.mtps.gov.br/pdet/microdados/NOVO CAGED/",
+            origem = paste0("ftp://ftp.mtps.gov.br/pdet/microdados/NOVO%20CAGED/",
                             ano,
                             "/",
                             ano,
@@ -45,7 +45,7 @@ baixa_caged <- function(ano,
             
             
             # fora do prazo
-            origem = paste0("ftp://ftp.mtps.gov.br/pdet/microdados/NOVO CAGED/",
+            origem = paste0("ftp://ftp.mtps.gov.br/pdet/microdados/NOVO%20CAGED/",
                             ano,
                             "/",
                             ano,
@@ -71,7 +71,7 @@ baixa_caged <- function(ano,
             
             
             # movimentacao
-            origem = paste0("ftp://ftp.mtps.gov.br/pdet/microdados/NOVO CAGED/",
+            origem = paste0("ftp://ftp.mtps.gov.br/pdet/microdados/NOVO%20CAGED/",
                             ano,
                             "/",
                             ano,

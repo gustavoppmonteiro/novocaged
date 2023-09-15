@@ -3,15 +3,16 @@
 #' @param ano Ano dos arquivos que devem ser baixados. Nao e possivel baixar microdados de meses de anos distintos.
 #' @param mes_inicial Mes cujos microdados vao ser baixados. No caso de baixar mais de um mes, esse argumento deve ser o mes mais distante.
 #' @param mes_final Argumento opcional. No caso de baixar varios meses, se refere ao mes mais recente. Se for baixar apenas um mes o preenchimento e opcional.
-#' @param caminho Caminho contendo nome da pasta e do arquivo em que os dados serao salvos. Deve terminar em ".parquet".
-#'
+#' @param nome_pasta Caminho contendo nome da pasta em que o arquivo vai ser salvo.
+#' @param nome_arquivo Nome do arquivo em que os dados serao salvos. Sera salvo em extensao .parquet. (Nao precisa colocar .parquet no nome)
 #' @export
 
 
 salva_bases <- function(ano,
                         mes_inicial,
                         mes_final=mes_inicial,
-                        caminho="atualizacao/caged_atualizacao.parquet"){
+                        nome_pasta = "atualizacao",
+                        nome_arquivo = "caged_atualizacao"){
       
       #TODO: tem que arrumar o caminho pra ser so o caminho mesmo, sem nome do arquivo
       #TODO: acho que tem que acrescentar um argumento so para o nome do arquivo
@@ -79,8 +80,8 @@ salva_bases <- function(ano,
       
       # exporta ---------------------------------------------------------------
       # cria pasta atualizacao (se ja nao existir)
-      dir.create("atualizacao", showWarnings = FALSE)
-      arrow::write_parquet(caged, caminho)
+      dir.create(nome_pasta, showWarnings = FALSE)
+      arrow::write_parquet(caged, paste0(nome_pasta, "/", nome_arquivo, ".parquet"))
       
       #TODO: tem que arrumar para que a pasta seja criada no caminho (mas tem que arrumar o caminho la em cima)
       
