@@ -92,3 +92,13 @@
 # 
 # #TODO: tem que fazer excecoes para janeiro a março de 2020. Ver "D:\Dados\Bases de dados\novo caged\atualizacao_2020.R".
 # 
+# install.packages("devtools")
+
+# acho q tem q arrumar o reademe
+# devtools::install_github("gustavoppmonteiro/novocaged")
+# 
+# novocaged::baixa_novo_caged(ano = 2022,
+#                             mes_inicial = 10,
+#                             caminho="atualizacao/cagedOut22.parquet")
+# 
+# dados_out <- arrow::read_parquet("atualizacao/cagedOut22.parquet")
