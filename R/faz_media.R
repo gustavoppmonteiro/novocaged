@@ -3,7 +3,7 @@
 #' @param dados nome da base de dados do novo caged. Necessario que contenha as variaveis: saldomovimentacao e indicadordeexclusao
 #' @param ... uma ou mais variaveis que se deseja cruzar 
 #' @param var_media variavel que se deseja tirar media. P. ex.: salario. No default, calcula o salario real com base no INPC do ultimo mes que aparece na base do Caged
-#' @param tira_outliers tira salarios minimos abaixo de 0,3SM e acima de 150SM?
+#' @param tira_outliers tira salarios minimos abaixo de 0,3SM e acima de 150SM? Obs.: funciona somente se estiver com acesso a Internet!
 #' @param tira_intermitente tira intermitentes do calculo de salario medio
 #' @export
 

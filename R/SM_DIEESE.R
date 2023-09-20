@@ -6,7 +6,7 @@ SM_DIEESE <- function() {
       
       # Referência ao pipe
       `%>%` <- magrittr::`%>%`
-      
+            
       # baixa os dados
       url <- "https://www.dieese.org.br/analisecestabasica/salarioMinimo.html"
       
