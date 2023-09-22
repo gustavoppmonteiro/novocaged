@@ -1,4 +1,4 @@
-#' Funcao para deflacionar salarios do Caged a partir do INPC(IBGE)
+#' Funcao para deflacionar salarios do Caged a partir do INPC(IBGE) - Obs.: tem que estar com acesso a internet
 #'
 #' @param base_caged  Base de dados do caged. A funcao cria duas variaveis: `deflator`, com o numero-indice mensal do INPC e `salario_real` com o valor deflacionado calculado.
 #' @param mes_base Mes base para o calculo do deflator. Ex.: se for 202201, o deflator traz os salarios para valores de janeiro de 2022. Se nulo, calcula o deflator com base no mes mais recente do caged.
