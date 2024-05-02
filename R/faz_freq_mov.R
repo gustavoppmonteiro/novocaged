@@ -7,7 +7,7 @@
 #' @export
 
 
-faz_freq_mov <- function(dados, ..., complete=F) {
+faz_freq_mov <- function(dados, ..., complete=T) {
       
       # Referência ao pipe
       `%>%` <- magrittr::`%>%`
@@ -27,7 +27,9 @@ faz_freq_mov <- function(dados, ..., complete=F) {
             dplyr::select(-saldomovimentacao, -estat_fdp, -exclusao)
       
       if(complete==T){
-            tabela <- tabela %>% tidyr::complete(saldomovimentacao, ...)
+            tabela <- tabela %>% 
+                  tidyr::complete(nome_mov, ...) %>% 
+                  dplyr::mutate(movimentacao = ifelse(is.na(movimentacao), 0, movimentacao))
       }
       
       return(tabela)

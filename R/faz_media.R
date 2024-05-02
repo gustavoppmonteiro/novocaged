@@ -7,6 +7,7 @@
 #' @param tira_intermitente tira intermitentes do calculo de salario medio
 #' @export
 
+
 faz_media <- function(dados, ..., var_media=salario_real, tira_outliers=T, tira_intermitente=F) {
       
       # Referência ao pipe
