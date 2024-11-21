@@ -35,7 +35,7 @@ salva_bases <- function(ano,
                                              meses[i],
                                              ".txt"),
                                       sep = ";",
-                                      encoding = "latin1")
+                                      encoding = "UTF-8")
             
             mov <- mov %>%
                   janitor::clean_names() %>%
@@ -51,7 +51,7 @@ salva_bases <- function(ano,
                                              meses[i],
                                              ".txt"),
                                       sep = ";",
-                                      encoding = "latin1")
+                                      encoding = "UTF-8")
             
             mov <- mov %>%
                   janitor::clean_names() %>%
@@ -67,7 +67,7 @@ salva_bases <- function(ano,
                                              meses[i],
                                              ".txt"),
                                       sep = ";",
-                                      encoding = "latin1")
+                                      encoding = "UTF-8")
             
             mov <- mov %>%
                   janitor::clean_names()
